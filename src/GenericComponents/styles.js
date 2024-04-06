@@ -11,8 +11,6 @@ export const CardContainer = styled.View`
   shadow-radius: 2px;
   elevation: 2;
   padding: 10px;
-  borderbottomcolor: '#a9a9a9';
-  borderbottomwidth: 0.5px;
 `;
 
 export const LoaderContainer = styled.View`

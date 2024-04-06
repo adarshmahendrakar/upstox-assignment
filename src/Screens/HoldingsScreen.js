@@ -70,13 +70,14 @@ export const HoldingScreens = () => {
   );
 
   // Calculate Total PNL
-  const totalPNL = totalCurrentValue - totalInvestmentValue;
+  const totalPNL = totalCurrentValue - totalInvestmentValue; // here I have not trimmed the decimals  if we want to trim we can use totalPNL.toFixed(3); //FYR: calculatePNL();
 
   // Calculate Today’s PNL
-  const todayPNL = data?.userHolding?.reduce(
+  const todayPNL = data?.userHolding?.reduce( 
     (acc, holding) => acc + (holding.close - holding.ltp) * holding.quantity,
     0,
-  );
+  ); // here I have not trimmed the decimals  if we want to trim we can use todayPNL.toFixed(3); //FYR: calculatePNL();
+
 
   return (
     <>

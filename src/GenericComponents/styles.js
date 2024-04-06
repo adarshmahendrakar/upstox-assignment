@@ -2,7 +2,6 @@ import styled from 'styled-components/native';
 
 export const CardContainer = styled.View`
   background-color: #fff;
-  border-radius: 8px;
   shadow-color: #000;
   shadow-offset: {
     width: 0;
@@ -11,7 +10,34 @@ export const CardContainer = styled.View`
   shadow-opacity: 0.2;
   shadow-radius: 2px;
   elevation: 2;
-  padding: 16px;
-  margin-vertical: 8px;
-  margin-horizontal: 16px;
+  padding: 10px;
+  borderbottomcolor: '#a9a9a9';
+  borderbottomwidth: 0.5px;
+`;
+
+export const LoaderContainer = styled.View`
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const LoaderText = styled.Text`
+  margin-top: 10px;
+  color: #000000;
+`;
+
+export const ErrorContainer = styled.View`
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const ErrorMessage = styled.Text`
+  margin-bottom: 10px;
+  color: red;
+  font-weight: bold;
+`;
+
+export const ManualMessage = styled.Text`
+  color: black;
 `;

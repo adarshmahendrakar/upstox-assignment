@@ -1,7 +1,7 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import { HoldingScreens } from './src/Screens/HoldingsScreen';
 import store from './src/Redux/Store/Store';
+import { HoldingScreens } from './src/Screens/HoldingsScreen';
 
 const App = () => {
   return (

@@ -5,7 +5,6 @@ import {useDispatch, useSelector} from 'react-redux';
 import {FlatList} from 'react-native';
 import FetchAPIData from '../Helpers/ApiActions';
 import {Loader} from '../GenericComponents/Loader';
-import {ShowError} from '../GenericComponents/ShowError';
 import Header from '../Components/Header/Header';
 import SwipeableButton from '../Components/BottomSheetModel/BottomSheetModel';
 import BottomSheetContent from '../Components/BottomSheetModel/BottomSheetContent';
@@ -16,6 +15,7 @@ import {
   ltp_text,
   pl_text,
 } from '../constants';
+import ShowError from '../GenericComponents/ShowError';
 
 export const HoldingScreens = () => {
   const dispatch = useDispatch();

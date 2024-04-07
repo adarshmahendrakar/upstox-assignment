@@ -31,11 +31,11 @@ export const ErrorContainer = styled.View`
 `;
 
 export const ErrorMessage = styled.Text`
-  margin-bottom: 10px;
-  color: red;
-  font-weight: bold;
+  color: black;
 `;
 
 export const ManualMessage = styled.Text`
-  color: black;
+  color: red;
+  margin-bottom: 10px;
+  font-weight: bold;
 `;

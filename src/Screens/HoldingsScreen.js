@@ -73,25 +73,26 @@ export const HoldingScreens = () => {
   const totalPNL = totalCurrentValue - totalInvestmentValue; // here I have not trimmed the decimals  if we want to trim we can use totalPNL.toFixed(3); //FYR: calculatePNL();
 
   // Calculate Today’s PNL
-  const todayPNL = data?.userHolding?.reduce( 
+  const todayPNL = data?.userHolding?.reduce(
     (acc, holding) => acc + (holding.close - holding.ltp) * holding.quantity,
     0,
   ); // here I have not trimmed the decimals  if we want to trim we can use todayPNL.toFixed(3); //FYR: calculatePNL();
 
-
   return (
     <>
+      {/* title is accepted as props here from the Header component */}
       <Header title={header_title} />
 
+      {/* used FlatList here,   symbol, quantity, ltp, pl, leftTitle, rightTitle is accepted as props here from the HoldingDetails component */}
       <FlatList
         data={data?.userHolding}
         renderItem={({item}) => (
           <Card>
             <HoldingDetails
-              symbol={item.symbol}
-              ltp={`₹ ${item.ltp}`}
-              quantity={item.quantity}
-              pl={calculatePNL(item)}
+              symbol={item.symbol || 'N/A'} // if data is missing then this will show N/A instead of throwing error (null case handling)
+              ltp={`₹ ${item.ltp}` || 'N/A'}
+              quantity={item.quantity || 'N/A'}
+              pl={calculatePNL(item) || 'N/A'}
               leftTitle={`${ltp_text}: `}
               rightTitle={`${pl_text}: `}
             />
@@ -101,16 +102,15 @@ export const HoldingScreens = () => {
         nestedScrollEnabled
       />
 
-      <SwipeableButton
-        onSwipe={() => {}}
-        swipeDistance={5}
-        setExtended={setExtended}>
+      {/* SwipeableButton component is having childrens,  swipeDistance, setExtended, is accepted as props here from the SwipeableButton component */}
+      <SwipeableButton swipeDistance={5} setExtended={setExtended}>
+        {/* SwipeableButton is a component which is having childrens, and here the children is used as BottomSheetContent component,    extended, currenValue, totalInvestmentValue, todaysPNL, totalPNL, is accepted as props here from the BottomSheetContent component */}
         <BottomSheetContent
           extended={extended}
-          currenValue={totalCurrentValue}
-          totalInvestmentValue={totalInvestmentValue}
-          todaysPNL={todayPNL}
-          totalPNL={totalPNL}
+          currenValue={totalCurrentValue || 'N/A'}
+          totalInvestmentValue={totalInvestmentValue || 'N/A'}
+          todaysPNL={todayPNL || 'N/A'}
+          totalPNL={totalPNL || 'N/A'}
         />
       </SwipeableButton>
     </>

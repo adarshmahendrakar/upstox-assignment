@@ -3,7 +3,7 @@ import {PanResponder, Animated, View, StyleSheet} from 'react-native';
 import { BottomSheetContainer, ButtonAnimatedContainer } from './Styles/BottomSheetStyles';
 
 const SwipeableButton = props => {
-  const {swipeDistance, onSwipe, children, setExtended} = props;
+  const {swipeDistance,  children, setExtended} = props;
 
   const pan = useRef(new Animated.ValueXY()).current;
 
@@ -30,7 +30,6 @@ const SwipeableButton = props => {
     });
 
     if (isSwipeUp) {
-      onSwipe();
       panAnimationTimings;
       setExtended(true);
       rotationAnimation;
